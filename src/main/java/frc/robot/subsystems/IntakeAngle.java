@@ -20,21 +20,20 @@ public class IntakeAngle extends SubsystemBase {
 
   public IntakeAngle() {
 
-  Slot0Configs slot0Configs = new Slot0Configs();
-  slot0Configs.kS = 0.24; 
-  slot0Configs.kV = 0.12; 
+    slot0Configs.kS = 0.24; 
+    slot0Configs.kV = 0.12; 
 
-  slot0Configs.kP = 4.8;
-  slot0Configs.kI = 0;
-  slot0Configs.kD = 0.1;
+    slot0Configs.kP = 4.8;
+    slot0Configs.kI = 0;
+    slot0Configs.kD = 0.1;
 
-  motionMagicConfigs.MotionMagicAcceleration = 160; 
-  motionMagicConfigs.MotionMagicJerk = 1600; 
-  intakeAngleMotor.getConfigurator().apply(talonFXConfigs, 0.050);
-  m_motmag.Slot = 0;
-  intakeAngleMotor.setControl(m_motmag.withPosition(0));
+    motionMagicConfigs.MotionMagicAcceleration = 160; 
+    motionMagicConfigs.MotionMagicJerk = 1600; 
+    intakeAngleMotor.getConfigurator().apply(talonFXConfigs, 0.050);
+    m_motmag.Slot = 0;
 
-  }
+    }
+  
   public void setMotorPosition(double Position) {
     intakeAngleMotor.setControl(m_motmag.withPosition(Position));
   }
@@ -45,7 +44,7 @@ public class IntakeAngle extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber(getName(), getMotorPosition());
+    SmartDashboard.putNumber("intake position", getMotorPosition());
   }
 
 }
